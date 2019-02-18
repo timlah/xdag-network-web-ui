@@ -1,0 +1,17 @@
+@import '../../styles/themes/index.scss';
+
+.title {
+  display: inline-block;
+  margin-right: $spacing-title;
+  margin-bottom: $spacing-title;
+  line-height: 1.1;
+  font-size: $font-size-large;
+  font-family: $font-stack;
+  font-weight: $font-weight-black;
+  color: $color-font-title;
+  text-transform: uppercase;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}

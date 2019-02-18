@@ -1,0 +1,20 @@
+@import '../../styles/themes/index.scss';
+
+.fieldset {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.legend {
+  float: left;
+  margin: 0;
+  width: auto;
+  font-size: inherit;
+}
+.loaderContainer {
+  display: inline-block;
+  margin-left: $spacing-small;
+  width: 15px;
+}

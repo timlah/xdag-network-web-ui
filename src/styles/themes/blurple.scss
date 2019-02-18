@@ -1,0 +1,24 @@
+@import '../functions.scss';
+
+$color-highlight: hsl(189, 100%, 73%);
+$color-highlight-secondary: hsla(245, 100%, 71%, 0.55);
+$color-lowlight: rgb(15, 12, 41);
+$color-font: hsla(0, 0%, 100%, 0.8);
+$color-font-title: hsl(0, 0%, 100%);
+$color-font-lowlight: hsla(0, 0%, 100%, 0.5);
+$color-font-reverse: hsl(246, 55%, 10%);
+
+$font-stack: 'Open Sans', sans-serif;
+$font-size-large: rem(20px);
+$font-size-regular: rem(15px);
+$font-size-small: rem(13px);
+$font-size-tiny: rem(11px);
+$font-weight-regular: 300;
+$font-weight-bold: 400;
+$font-weight-black: 600;
+
+// use pure value since rem() doesn't support calculations
+$spacing-small: 0.6125rem; // 10px
+$spacing-regular: 1.25rem; // 20px
+$spacing-title: 2rem;
+$spacing-large: 2rem; // 40px

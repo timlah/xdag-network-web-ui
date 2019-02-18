@@ -1,0 +1,130 @@
+@import '../../styles/themes/index.scss';
+
+/*.axis {
+  color: $color-highlight-secondary;
+  font-size: $font-size-tiny;
+  fill: $color-highlight-secondary;
+  mix-blend-mode: screen;
+}
+
+.bar {
+  pointer-events: none;
+}
+
+.visualArea {
+  pointer-events: all;
+}*/
+
+:global {
+  .rv-xy-plot {
+    position: relative;
+  }
+
+  .rv-xy-plot__axis {
+    stroke: $color-highlight-secondary;
+    fill: $color-highlight-secondary;
+    mix-blend-mode: screen;
+  }
+
+  .rv-xy-plot__axis__tick__text {
+    font-size: $font-size-tiny;
+    fill: $color-highlight-secondary;
+    mix-blend-mode: screen;
+  }
+
+  .rv-xy-plot__axis {
+    pointer-events: none;
+    &--horizontal &__tick__line {
+      transform: translateY(4px);
+    }
+
+    &--vertical &__tick__line {
+      transform: translateX(-4px);
+    }
+  }
+
+  .rv-crosshair {
+    font-size: $font-size-tiny;
+    color: rgba($color-font, 0.8);
+    top: 10px;
+    position: absolute;
+    white-space: nowrap;
+    pointer-events: none;
+
+    &__line {
+      position: relative;
+      z-index: 0;
+      width: 1px;
+      background: rgba(darken($color-lowlight, 3%), 0.9);
+    }
+
+    &__inner {
+      padding: $spacing-small;
+      position: absolute;
+      top: 0;
+      background: rgba(darken($color-lowlight, 3%), 0.9);
+
+      &--left {
+        right: 1px;
+      }
+
+      &--right {
+        left: 1px;
+      }
+    }
+  }
+}
+
+.crosshairTable {
+  border-collapse: collapse;
+}
+
+.crosshairCell,
+.crosshairDate {
+  padding: 0.2em 0.4em;
+}
+
+.crosshairDate {
+  display: block;
+  font-weight: $font-weight-bold;
+  margin-bottom: 0.2em;
+}
+
+.crosshairGroupDate {
+  margin-left: 1em;
+}
+
+.crosshairGroupColor {
+  width: 0.4em;
+  height: 0.4em;
+  display: inline-block;
+  margin-right: 0.6em;
+  vertical-align: middle;
+}
+
+.chart {
+  position: relative;
+}
+
+$fadeTime: 1000ms;
+.fadeEnter {
+  transform: scaleY(0);
+  transform-origin: center bottom;
+}
+
+.fadeEnterActive {
+  transform: scaleY(1);
+  transition: transform $fadeTime cubic-bezier(0.65, 0.05, 0.36, 1);
+  transform-origin: center bottom;
+}
+
+.fadeExit {
+  transform: scaleY(1);
+  transform-origin: center top;
+}
+
+.fadeExitActive {
+  transform: scaleY(0);
+  transition: transform $fadeTime cubic-bezier(0.65, 0.05, 0.36, 1);
+  transform-origin: center top;
+}

@@ -1,0 +1,50 @@
+%isFocused {
+  outline: 1px solid rgb(255, 100, 91);
+  outline-offset: 3px;
+}
+
+%screenReaderOnly {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.fade {
+  $fadeTime: 300ms;
+
+  &Appear {
+    opacity: 0;
+
+    &Active {
+      opacity: 1;
+      transform: scale(1);
+      transition: all $fadeTime cubic-bezier(0.1, 0.5, 0.1, 1);
+    }
+  }
+
+  &Enter {
+    opacity: 0;
+
+    &Active {
+      opacity: 1;
+      transform: scale(1);
+      transition: all $fadeTime cubic-bezier(0.1, 0.5, 0.1, 1);
+    }
+  }
+
+  &Exit {
+    opacity: 1;
+    transform: scale(1);
+
+    &Active {
+      opacity: 0;
+      transition: all $fadeTime cubic-bezier(0.1, 0.5, 0.1, 1);
+    }
+  }
+}

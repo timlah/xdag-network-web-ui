@@ -1,0 +1,45 @@
+@import '../../styles/themes/index.scss';
+
+:local {
+  .container {
+    display: inline-flex;
+  }
+
+  @keyframes :local(rotation) {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinner {
+    stroke: $color-highlight;
+    animation: rotation 1.35s linear infinite;
+  }
+
+  .circle {
+    stroke-dasharray: 180;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation: turn 1.75s ease-in-out infinite;
+  }
+
+  @keyframes :local(turn) {
+    0% {
+      stroke-dashoffset: 180;
+    }
+
+    50% {
+      stroke-dashoffset: 35;
+      transform: rotate(135deg);
+    }
+
+    100% {
+      stroke-dashoffset: 180;
+      transform: rotate(360deg);
+    }
+  }
+}

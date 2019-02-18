@@ -1,0 +1,13 @@
+@import '../../styles/themes/index.scss';
+
+.statistic {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 15px;
+  margin-bottom: $spacing-regular;
+}
+
+.miniStat {
+  font-size: $font-size-tiny;
+  color: $color-highlight;
+}

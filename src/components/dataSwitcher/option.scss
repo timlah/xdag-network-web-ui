@@ -1,0 +1,29 @@
+@import '../../styles/themes/index.scss';
+@import '../../styles/utils.scss';
+
+.option {
+  display: inline-block;
+  position: relative;
+  margin-left: $spacing-regular;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: $color-font-lowlight;
+  cursor: pointer;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: rgba($color-highlight, 0.75);
+  }
+
+  &.isActive {
+    color: $color-highlight;
+  }
+
+  @at-root :global .isUsingTab :local &.isFocused {
+    @extend %isFocused;
+  }
+}
+
+.hiddenInput {
+  @extend %screenReaderOnly;
+}

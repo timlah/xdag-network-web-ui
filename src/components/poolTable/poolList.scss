@@ -1,0 +1,176 @@
+@import '../../styles/themes/index.scss';
+@import '../../styles/utils.scss';
+
+.container {
+  position: relative;
+  font-size: $font-size-small;
+  margin-top: -$spacing-title;
+  line-height: initial;
+}
+
+.tableContainer {
+  max-height: 70vh;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.tableHead {
+  visibility: hidden;
+}
+
+.body {
+  color: $color-font-lowlight;
+}
+
+.link {
+  color: rgba($color-highlight, 0.85);
+  text-decoration: none;
+
+  &:hover {
+    color: rgba($color-highlight, 0.5);
+  }
+
+  @at-root :global .isUsingTab :local &:focus {
+    @extend %isFocused;
+  }
+}
+
+.row {
+  &:nth-child(odd) {
+    color: rgba($color-font-lowlight, 0.7);
+
+    .link {
+      color: $color-highlight;
+
+      &:hover {
+        color: rgba($color-highlight, 0.5);
+      }
+    }
+  }
+}
+
+.cell {
+  vertical-align: middle;
+  display: table-cell;
+  padding: 0.4rem 0.9rem;
+  white-space: nowrap;
+
+  @media (min-width: 2500px) {
+    padding: 0.8rem 0.9rem;
+  }
+}
+
+.cellHeader {
+  font-weight: $font-weight-bold;
+  vertical-align: bottom;
+}
+
+.headerIcon {
+  font-size: $font-size-large;
+  color: $color-font-title;
+  width: 100%;
+}
+
+.headerText {
+  padding-top: 0.4rem;
+  font-size: $font-size-tiny;
+  color: $color-font-title;
+  width: 100%;
+}
+
+.cellHeaderDistribution {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: $spacing-large / 2;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: rgba($color-highlight, 0.1);
+    mix-blend-mode: screen;
+  }
+}
+
+.distributionContainer {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  top: $spacing-large / 2;
+  transform: translate(100%, -50%);
+  right: 0;
+}
+
+.distributionIcon {
+  display: inline-flex;
+  position: absolute;
+  left: -$spacing-large;
+  background: none;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  font-size: $font-size-large;
+  color: $color-highlight;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
+
+  @at-root :global .isUsingTab :local &:focus {
+    @extend %isFocused;
+  }
+}
+
+.fixedCorner {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+
+  .cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background: darken($color-lowlight, 3%);
+    height: auto !important;
+    pointer-events: all;
+  }
+}
+
+.fixedHeaderContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.fixedHeader {
+  display: flex;
+
+  .cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
+.fixedColumnContainer {
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  background: darken($color-lowlight, 3%);
+}
+
+.stateContainer {
+  position: relative;
+  left: 0.1em;
+}

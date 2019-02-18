@@ -1,0 +1,122 @@
+@import '../../../styles/themes/index.scss';
+
+.container {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+
+  @media (min-width: 2500px) {
+    flex-direction: row;
+  }
+}
+
+.listContainer {
+  width: 100%;
+  flex-grow: 1;
+  padding: $spacing-large $spacing-regular;
+  background: linear-gradient(
+    45deg,
+    $color-lowlight,
+    hsl(246, 40%, 13%),
+    $color-lowlight
+  );
+
+  @media (min-width: 500px) {
+    padding: $spacing-large;
+  }
+
+  @media (min-width: 1200px) {
+    background: linear-gradient(
+      to right,
+      $color-lowlight,
+      hsl(246, 40%, 17%),
+      $color-lowlight
+    );
+  }
+
+  @media (min-width: 2500px) {
+    width: 66%;
+  }
+}
+
+.chartContainer {
+  display: flex;
+  padding: $spacing-large $spacing-regular;
+  background: linear-gradient(to right, $color-lowlight, rgb(48, 43, 99));
+
+  @media (min-width: 500px) {
+    padding: $spacing-large;
+  }
+
+  @media (min-width: 2500px) {
+    order: 2;
+    width: 34%;
+    background: linear-gradient(to left, $color-lowlight, hsl(246, 40%, 17%));
+  }
+}
+
+.poolInfo {
+  margin: #{$spacing-large + $spacing-regular} 0 $spacing-regular;
+  font-size: 15px;
+  color: $color-font;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.poolInfoSpacer {
+  margin-left: $spacing-small;
+}
+
+.chartTitle {
+  display: block;
+  margin-bottom: $spacing-regular;
+  font-size: $font-size-regular;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  color: $color-font-title;
+}
+
+.grid {
+  display: flex; // flex fallback
+  flex-direction: column;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-gap: $spacing-regular;
+
+  @media (min-width: 700px) {
+    flex-direction: row;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1000px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: 1600px) {
+    grid-column-gap: $spacing-large;
+  }
+
+  @media (min-width: 2500px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gridItem {
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+  flex-direction: column;
+  overflow: hidden;
+
+  @supports (display: grid) {
+    width: auto;
+  }
+
+  &:first-child {
+    @media (min-width: 700px) and (max-width: 1000px) {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+}

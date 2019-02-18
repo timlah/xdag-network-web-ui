@@ -1,0 +1,14 @@
+@import '../../styles/themes/index.scss';
+@import '../../styles/utils.scss';
+
+.container {
+  font-size: $font-size-regular;
+  cursor: pointer;
+  margin: 0;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+.hidden {
+  @extend %screenReaderOnly;
+}

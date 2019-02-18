@@ -1,0 +1,19 @@
+@import '../../styles/themes/index.scss';
+
+.name {
+  font-size: $font-size-regular;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  color: $color-font-title;
+
+  &::after {
+    content: ' ';
+  }
+}
+
+.value {
+  font-size: $font-size-regular;
+  text-transform: uppercase;
+  color: $color-highlight;
+  white-space: nowrap;
+}

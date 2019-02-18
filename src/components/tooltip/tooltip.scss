@@ -1,0 +1,18 @@
+@import '../../styles/themes/index.scss';
+
+.tooltip {
+  background: #fff !important;
+  color: $color-lowlight !important;
+
+  &::after {
+    border-top-color: #fff !important;
+  }
+
+  p {
+    margin: 1em 0;
+  }
+
+  ul {
+    padding-left: $spacing-large;
+  }
+}

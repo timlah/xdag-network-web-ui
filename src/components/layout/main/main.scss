@@ -1,0 +1,16 @@
+@import '../../../styles/themes/index.scss';
+
+.fade {
+  $fadeTime: 1200ms;
+
+  &Appear {
+    opacity: 0;
+    transform: scale(0.9);
+
+    &Active {
+      opacity: 1;
+      transform: scale(1);
+      transition: all $fadeTime cubic-bezier(0.1, 0.5, 0.1, 1) 300ms;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import '../../styles/themes/index.scss';
+
+:global {
+  body {
+    scrollbar-color: rgb(79, 71, 162) #302b63;
+  }
+
+  ::-webkit-scrollbar {
+    background: #302b63;
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #302b63;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $color-highlight-secondary;
+  }
+
+  ::selection {
+    background: $color-highlight-secondary;
+    color: #fff;
+  }
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+  font-family: $font-stack;
+  font-weight: $font-weight-regular;
+  line-height: 1.4;
+  color: $color-font;
+  background: rgb(15, 12, 41);
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: rgba($color-highlight, 0.85);
+    text-decoration: none;
+
+    &:hover {
+      color: rgba($color-highlight, 0.5);
+    }
+  }
+}
+
+.stateContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: $spacing-regular;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.stateMessage {
+  margin-top: $spacing-regular;
+}
