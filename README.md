@@ -11,6 +11,7 @@ Web UI which displays the current network status of XDAG. Built by using React, 
 
 #### Prerequisites
 
+- node: https://nodejs.org/en/download/
 - npm: https://www.npmjs.com/get-npm
 
 #### Commands
