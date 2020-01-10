@@ -5,8 +5,7 @@ import { scaleLinear } from 'd3-scale';
 import { arrayShuffle, request } from '../utils';
 
 const handleVisibility = (entry, i) => ({
-  // enable on random, but make sure at least one is visible
-  isVisibleInCharts: i === 0 ? true : Math.random() > 0.7,
+  isVisibleInCharts: true,
   ...entry
 });
 

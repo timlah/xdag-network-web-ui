@@ -107,7 +107,7 @@
   width: 100%;
   flex-grow: 1;
   flex-direction: column;
-  overflow: hidden;
+  min-width: 0;
 
   @supports (display: grid) {
     width: auto;
