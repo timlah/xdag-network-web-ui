@@ -8,8 +8,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const browsers = ['> 1%', 'last 2 versions', 'IE >= 10'];
-
 module.exports = (env, argv) => {
   const isDevMode = argv.mode === 'development';
 
@@ -89,7 +87,7 @@ module.exports = (env, argv) => {
             {
               loader: 'postcss-loader',
               options: {
-                plugins: [autoprefixer({ browsers })]
+                plugins: [autoprefixer()]
               }
             },
             {
