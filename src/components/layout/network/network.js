@@ -1,7 +1,5 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 import { format } from 'd3-format-mod';
 
 import { LIVE, DAY, MONTH } from '../../../constants';
@@ -15,13 +13,13 @@ import Globe from '../../globe';
 
 import style from './network.scss';
 
-const NetworkLayout = ({ t }) => (
+const NetworkLayout = () => (
   <section className={style.container}>
     <div className={style.mainContainer}>
-      <Title>{t('network_status', 'Network status')}</Title>
+      <Title>{'Network status'}</Title>
       <span className={style.dataSwitcherContainer}>
         <DataSwitcher
-          legend={t('data_timeframe', 'Data timeframe')}
+          legend={'Data timeframe'}
           action={stats.useTimeframe}
           activeTimeframe={stats.timeframe}
           options={[
@@ -43,7 +41,7 @@ const NetworkLayout = ({ t }) => (
             yFormat={format('.4~s')}
             crosshairFormat={format('.8~s')}
             suffix="H/s"
-            statisticName={t('network_hashrate', 'Network hashrate')}
+            statisticName={'Network hashrate'}
             statisticValue={stats.getNetworkStat('hashrate')}
             statisticFormat={format('.4~s')}
           />
@@ -57,7 +55,7 @@ const NetworkLayout = ({ t }) => (
             yValue="chainDifficulty"
             yFormat={format('.0e')}
             crosshairFormat={format('.14~s')}
-            statisticName={t('network_difficulty', 'Network difficulty')}
+            statisticName={'Network difficulty'}
             statisticValue={stats.getNetworkStat('chainDifficulty')}
             statisticFormat={format('.9~s')}
           />
@@ -69,7 +67,7 @@ const NetworkLayout = ({ t }) => (
             type="bar"
             xValue="date"
             yValue="hosts"
-            statisticName={t('network_hosts', 'Network hosts')}
+            statisticName={'Network hosts'}
             statisticValue={stats.getNetworkStat('hosts')}
           />
         </div>
@@ -78,9 +76,9 @@ const NetworkLayout = ({ t }) => (
 
     <div className={style.sideContainer}>
       {[
-        { name: t('blocks', 'Blocks'), statistic: 'blocks' },
-        { name: t('main_blocks', 'Main blocks'), statistic: 'mainBlocks' },
-        { name: t('supply', 'Supply'), statistic: 'supply' }
+        { name: 'Blocks', statistic: 'blocks' },
+        { name: 'Main blocks', statistic: 'mainBlocks' },
+        { name: 'Supply', statistic: 'supply' }
       ].map(({ name, statistic }) => (
         <Stat
           name={name}
@@ -95,8 +93,4 @@ const NetworkLayout = ({ t }) => (
   </section>
 );
 
-NetworkLayout.propTypes = {
-  t: PropTypes.func.isRequired
-};
-
-export default translate()(observer(NetworkLayout));
+export default observer(NetworkLayout);

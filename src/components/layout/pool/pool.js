@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
-import { translate, Trans } from 'react-i18next';
 import { format } from 'd3-format-mod';
 
 import Chart from '../../chart';
@@ -11,7 +10,7 @@ import timeframeStats from '../../../stores/stats/timeframe';
 import pools from '../../../stores/pools';
 import style from './pool.scss';
 
-const PoolLayout = ({ t }) => {
+const PoolLayout = () => {
   const visualizedPools = timeframeStats
     .getPoolsData()
     .reduce((result, poolDataGroup) => {
@@ -30,9 +29,7 @@ const PoolLayout = ({ t }) => {
       <div className={style.chartContainer}>
         <div className={style.grid}>
           <div className={style.gridItem}>
-            <div className={style.chartTitle}>
-              {t('pool_hashrate', 'Pool hashrate')}
-            </div>
+            <div className={style.chartTitle}>Pool hashrate</div>
             <Chart
               data={visualizedPools}
               isDataGroup
@@ -48,9 +45,7 @@ const PoolLayout = ({ t }) => {
             />
           </div>
           <div className={style.gridItem}>
-            <div className={style.chartTitle}>
-              {t('pool_orphan_blocks', 'Pool orphan blocks')}
-            </div>
+            <div className={style.chartTitle}>Pool orphan blocks</div>
             <Chart
               data={visualizedPools}
               isDataGroup
@@ -64,9 +59,7 @@ const PoolLayout = ({ t }) => {
             />
           </div>
           <div className={style.gridItem}>
-            <div className={style.chartTitle}>
-              {t('pool_wait_sync_blocks', 'Pool wait sync blocks')}
-            </div>
+            <div className={style.chartTitle}>Pool wait sync blocks</div>
             <Chart
               data={visualizedPools}
               isDataGroup
@@ -82,22 +75,18 @@ const PoolLayout = ({ t }) => {
         </div>
       </div>
       <div className={style.listContainer}>
-        <Title>{t('featured_pools', 'featured mining pools')}</Title>
+        <Title>featured mining pools</Title>
         <div>
           <PoolTable />
           <p className={style.poolInfo}>
-            <Trans i18nKey="featured_pools_notice">
-              All the pools featured here donate a percentage of block rewards
-              to the community fund.
-              <span className={style.poolInfoSpacer}>
-                The complete list of community approved pools can be found on
-                our&nbsp;
-                <a href="https://github.com/XDagger/xdag/wiki/White-List">
-                  wiki
-                </a>
-                .
-              </span>
-            </Trans>
+            All the pools featured here donate a percentage of block rewards to
+            the community fund.
+            <span className={style.poolInfoSpacer}>
+              The complete list of community approved pools can be found on
+              our&nbsp;
+              <a href="https://github.com/XDagger/xdag/wiki/White-List">wiki</a>
+              .
+            </span>
           </p>
         </div>
       </div>
@@ -105,8 +94,4 @@ const PoolLayout = ({ t }) => {
   );
 };
 
-PoolLayout.propTypes = {
-  t: PropTypes.func.isRequired
-};
-
-export default translate()(observer(PoolLayout));
+export default observer(PoolLayout);

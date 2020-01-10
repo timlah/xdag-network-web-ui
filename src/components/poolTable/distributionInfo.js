@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { translate, Trans } from 'react-i18next';
 import { FiInfo } from 'react-icons/fi';
 
 import Title from '../title';
@@ -15,13 +14,8 @@ const DistributionInfo = ({ t }) => (
         appStore.openModal(
           <Fragment>
             <Title key="title" Node="h2">
-              {t(
-                'block_reward_distribution',
-                'Block Reward Distribution',
-                'nothing fancy'
-              )}
+              Block Reward Distribution
             </Title>
-            <Trans key="body" i18nKey="block_reward_information">
               <p>
                 When you mine XDAG in a pool and a block is found, the block
                 rewards (1024 XDAG) are distributed according to the pool’s
@@ -39,7 +33,6 @@ const DistributionInfo = ({ t }) => (
                 <strong>The remaining amount</strong> is distributed evenly to
                 everyone mining on the pool.
               </p>
-            </Trans>
           </Fragment>
         );
       }}
@@ -47,9 +40,9 @@ const DistributionInfo = ({ t }) => (
       <FiInfo />
     </button>
     <span className={style.distributionTitle}>
-      {t('block_reward_distribution', 'Block Reward Distribution')}
+      Block Reward Distribution
     </span>
   </div>
 );
 
-export default translate()(DistributionInfo);
+export default (DistributionInfo);

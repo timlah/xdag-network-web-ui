@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { format } from 'd3-format-mod';
 import { FiX } from 'react-icons/fi';
-import { translate } from 'react-i18next';
 
 import Checkbox from '../checkbox';
 import AnimatedNumber from '../animatedNumber';
@@ -16,7 +15,7 @@ import style from './poolList.scss';
 
 const formatNumbers = format('.3~s');
 
-const CellContent = ({ pool, header, suffix, t }) => {
+const CellContent = ({ pool, header, suffix }) => {
   const handleVisibilityToggle = bool => {
     poolsStore.setChartVisibility(pool.id, bool);
   };
@@ -30,10 +29,7 @@ const CellContent = ({ pool, header, suffix, t }) => {
           toggle={handleVisibilityToggle}
           active={pool.isVisibleInCharts}
           color={pool.color}
-          screenReaderText={t(
-            'pool_chart_checkbox_helper',
-            'Display pool data in charts'
-          )}
+          screenReaderText={'Display pool data in charts'}
         />
       );
 
@@ -63,7 +59,7 @@ const CellContent = ({ pool, header, suffix, t }) => {
       );
 
     case 'location':
-      return t(`common:${pool[header].toLowerCase()}`, pool[header]);
+      return pool[header];
 
     case 'mining_address':
       return pool[header].map(address => <div key={address}>{address}</div>);
@@ -97,12 +93,11 @@ const CellContent = ({ pool, header, suffix, t }) => {
 CellContent.propTypes = {
   pool: PropTypes.objectOf(PropTypes.shape).isRequired,
   header: PropTypes.string.isRequired,
-  suffix: PropTypes.string,
-  t: PropTypes.func.isRequired
+  suffix: PropTypes.string
 };
 
 CellContent.defaultProps = {
   suffix: null
 };
 
-export default translate()(observer(CellContent));
+export default observer(CellContent);

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import { translate } from 'react-i18next';
 
 import detectTabUse from '../detectTabUse';
 import ErrorBoundary from './errorBoundary';
@@ -29,4 +28,4 @@ App.propTypes = {
   isUsingTab: PropTypes.bool.isRequired
 };
 
-export default translate()(detectTabUse(App));
+export default (detectTabUse(App));

@@ -206,7 +206,7 @@ class PoolTable extends Component {
 
   render() {
     const { activeRefs, horizontalScroll } = this.state;
-    const { headerCellHeight, t, data, columns } = this.props;
+    const { headerCellHeight, data, columns } = this.props;
 
     return (
       <div className={style.container}>
@@ -216,7 +216,6 @@ class PoolTable extends Component {
         >
           {activeRefs && (
             <FixedHeader
-              t={t}
               headerCellRefs={this.headerCellRefs}
               headerCellHeight={headerCellHeight}
               tableRef={this.tableRef}
@@ -235,7 +234,6 @@ class PoolTable extends Component {
         >
           {activeRefs && (
             <FixedColumn
-              t={t}
               fixedColumnRefs={this.fixedColumnRefs}
               tableRef={this.tableRef}
               data={data}
@@ -245,7 +243,6 @@ class PoolTable extends Component {
         </div>
         {activeRefs && (
           <FixedCorner
-            t={t}
             headerCellRefs={this.headerCellRefs}
             headerCellHeight={headerCellHeight}
             columns={columns}
@@ -264,7 +261,6 @@ class PoolTable extends Component {
             <thead className={style.tableHead}>
               <tr>
                 <CellHeaders
-                  t={t}
                   createRefs
                   headerCellRefs={this.headerCellRefs}
                   headerCellHeight={headerCellHeight}
@@ -274,7 +270,6 @@ class PoolTable extends Component {
             </thead>
             <tbody className={style.body}>
               <BodyCells
-                t={t}
                 createRefs
                 fixedColumnRefs={this.fixedColumnRefs}
                 data={data}
@@ -290,7 +285,6 @@ class PoolTable extends Component {
 
 PoolTable.propTypes = {
   headerCellHeight: PropTypes.string.isRequired,
-  t: PropTypes.func.isRequired,
   columns: PropTypes.array.isRequired,
   data: PropTypes.array.isRequired
 };

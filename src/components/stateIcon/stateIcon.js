@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 import {
   FiHelpCircle,
   FiAlertTriangle,
@@ -10,7 +9,7 @@ import {
 
 import style from './stateIcon.scss';
 
-const StateIcon = ({ type, includeText, t }) => {
+const StateIcon = ({ type, includeText }) => {
   const Icon = () => {
     switch (type) {
       case 'ON':
@@ -19,11 +18,7 @@ const StateIcon = ({ type, includeText, t }) => {
             <span className={style.icon}>
               <FiPower />
             </span>
-            {includeText && (
-              <span className={style.text}>
-                {t('operational', 'Operational')}
-              </span>
-            )}
+            {includeText && <span className={style.text}>Operational</span>}
           </span>
         );
       case 'SYNC':
@@ -32,11 +27,7 @@ const StateIcon = ({ type, includeText, t }) => {
             <span className={style.icon}>
               <FiActivity />
             </span>
-            {includeText && (
-              <span className={style.text}>
-                {t('synchronizing', 'Synchronizing')}
-              </span>
-            )}
+            {includeText && <span className={style.text}>Synchronizing</span>}
           </span>
         );
       case 'MAINTENANCE':
@@ -45,11 +36,7 @@ const StateIcon = ({ type, includeText, t }) => {
             <span className={style.icon}>
               <FiAlertTriangle />
             </span>
-            {includeText && (
-              <span className={style.text}>
-                {t('maintenance', 'Maintenance')}
-              </span>
-            )}
+            {includeText && <span className={style.text}>Maintenance</span>}
           </span>
         );
       case 'NO_RESPONSE':
@@ -58,11 +45,7 @@ const StateIcon = ({ type, includeText, t }) => {
             <span className={style.icon}>
               <FiHelpCircle />
             </span>
-            {includeText && (
-              <span className={style.text}>
-                {t('no_response', 'No response')}
-              </span>
-            )}
+            {includeText && <span className={style.text}>No response</span>}
           </span>
         );
       case 'UNKNOWN':
@@ -71,9 +54,7 @@ const StateIcon = ({ type, includeText, t }) => {
             <span className={style.icon}>
               <FiHelpCircle />
             </span>
-            {includeText && (
-              <span className={style.text}>{t('unknown', 'Unknown')}</span>
-            )}
+            {includeText && <span className={style.text}>Unknown</span>}
           </span>
         );
       case 'OFFLINE':
@@ -82,9 +63,7 @@ const StateIcon = ({ type, includeText, t }) => {
             <span className={style.icon}>
               <FiPower />
             </span>
-            {includeText && (
-              <span className={style.text}>{t('offline', 'Offline')}</span>
-            )}
+            {includeText && <span className={style.text}>Offline</span>}
           </span>
         );
       default:
@@ -104,4 +83,4 @@ StateIcon.defaultProps = {
   includeText: false
 };
 
-export default translate()(memo(StateIcon));
+export default memo(StateIcon);

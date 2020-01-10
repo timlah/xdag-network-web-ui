@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 import {
   FiPower,
   FiGitPullRequest,
@@ -22,47 +21,47 @@ import { FaUsers } from 'react-icons/fa';
 import poolsStore from '../../stores/pools';
 import PoolTable from './poolTable';
 
-const PoolTableContainer = ({ t }) => {
+const PoolTableContainer = () => {
   const columns = [
     {
       key: 'name',
-      text: t('pool_name', 'Pool name'),
+      text: 'Pool name',
       icon: <FiHardDrive />,
       align: 'left'
     },
     {
       key: 'isVisibleInCharts',
-      text: t('chart_data', 'Chart data'),
+      text: 'Chart data',
       icon: <FiBarChart />,
       align: 'left'
     },
     {
       key: 'version',
-      text: t('xdag_version', 'XDAG version'),
+      text: 'XDAG version',
       icon: <FiCpu />,
       align: 'left'
     },
     {
       key: 'location',
-      text: t('location', 'Location'),
+      text: 'Location',
       icon: <FiMapPin />,
       align: 'left'
     },
     {
       key: 'mining_address',
-      text: t('mining_address', 'Mining address'),
+      text: 'Mining address',
       icon: <FiClipboard />,
       align: 'left'
     },
     {
       key: 'state',
-      text: t('state', 'State'),
+      text: 'State',
       icon: <FiPower />,
       align: 'left'
     },
     {
       key: 'payment_pool',
-      text: t('payment_pool', 'Pool fee'),
+      text: 'Pool fee',
       icon: (
         <svg
           stroke="currentColor"
@@ -91,54 +90,54 @@ const PoolTableContainer = ({ t }) => {
     },
     {
       key: 'payment_community',
-      text: t('payment_community', 'Community donation'),
+      text: 'Community donation',
       icon: <FiGift />,
       align: 'right',
       distribution: true
     },
     {
       key: 'payment_finder',
-      text: t('payment_finder', 'Finder reward'),
+      text: 'Finder reward',
       icon: <FiUser />,
       align: 'right',
       distribution: true
     },
     {
       key: 'payment_contributor',
-      text: t('payment_contributor', 'Contributor reward'),
+      text: 'Contributor reward',
       icon: <FiUsers />,
       align: 'right',
       distribution: true
     },
     {
       key: 'payment_all',
-      text: t('payment_all', 'Pool miners'),
+      text: 'Pool miners',
       icon: <FaUsers />,
       align: 'right',
       distribution: true
     },
     {
       key: 'hashrate',
-      text: t('hashrate', 'Hashrate'),
+      text: 'Hashrate',
       icon: <FiBox />,
       align: 'right',
       suffix: 'H/s'
     },
     {
       key: 'hosts',
-      text: t('hosts', 'Hosts'),
+      text: 'Hosts',
       icon: <FiMonitor />,
       align: 'right'
     },
     {
       key: 'orphanBlocks',
-      text: t('orphan_blocks', 'Orphan blocks'),
+      text: 'Orphan blocks',
       icon: <FiGitPullRequest />,
       align: 'right'
     },
     {
       key: 'waitSyncBlocks',
-      text: t('wait_sync_blocks', 'Wait sync blocks'),
+      text: 'Wait sync blocks',
       icon: <FiGitMerge />,
       align: 'right'
     }
@@ -149,9 +148,8 @@ const PoolTableContainer = ({ t }) => {
       columns={columns}
       data={poolsStore.data}
       headerCellHeight="6.5rem"
-      t={t}
     />
   );
 };
 
-export default translate()(observer(PoolTableContainer));
+export default observer(PoolTableContainer);

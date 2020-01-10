@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
-import { translate } from 'react-i18next';
 
 import appStore from '../../stores/app';
 import liveStats from '../../stores/stats/live';
@@ -23,18 +22,18 @@ const StateHandler = ({ t }) => {
   if (pools.initialLoadSuccess && liveStats.initialLoadSuccess) {
     return (
       <Suspense
-        fallback={<Loader message={t('loading_UI', 'Loading UI...')} />}
+        fallback={<Loader message={'Loading UI...'} />}
       >
         <MainLayout />
       </Suspense>
     );
   }
 
-  return <Loader message={t('connecting_to_API', 'Connecting to API...')} />;
+  return <Loader message={'Connecting to API...'} />;
 };
 
 StateHandler.propTypes = {
   t: PropTypes.func.isRequired
 };
 
-export default translate()(observer(StateHandler));
+export default (observer(StateHandler));

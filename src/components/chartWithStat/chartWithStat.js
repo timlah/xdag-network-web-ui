@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 
 import Chart from '../chart';
 import Stat from '../stat';
@@ -11,14 +10,11 @@ const ChartWithStat = ({
   statisticValue,
   statisticFormat,
   suffix,
-  t,
   ...props
 }) => (
   <Fragment>
     <div className={style.miniStat}>
-      {statisticValue !== null
-        ? statisticValue
-        : t('unavailable', 'unavailable')}
+      {statisticValue !== null ? statisticValue : 'unavailable'}
     </div>
     <Stat
       className={style.statistic}
@@ -34,8 +30,7 @@ const ChartWithStat = ({
 ChartWithStat.propTypes = {
   statisticName: PropTypes.string.isRequired,
   statisticValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  statisticFormat: PropTypes.func,
-  t: PropTypes.func.isRequired
+  statisticFormat: PropTypes.func
 };
 
 ChartWithStat.defaultProps = {
@@ -43,4 +38,4 @@ ChartWithStat.defaultProps = {
   statisticFormat: undefined
 };
 
-export default translate()(ChartWithStat);
+export default ChartWithStat;
