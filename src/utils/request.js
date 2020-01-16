@@ -1,10 +1,10 @@
 import { get } from 'axios';
 
-import { API_ROOT, MIN_20, DAY, MONTH } from '../constants';
+import { API_URL, MIN_20, DAY, MONTH } from '../constants';
 import appState from '../stores/app';
 
 const request = async path => {
-  const { data } = await get(`${API_ROOT}/${path}`);
+  const { data } = await get(`${API_URL}/${path}`);
 
   if (data.status !== 'ok') {
     throw `API ${data.status}: ${data.message}`;

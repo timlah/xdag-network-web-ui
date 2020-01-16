@@ -8,7 +8,7 @@ import {
   parsePoolStatsEntry
 } from '../../utils';
 import StatsStore from './parentClass';
-import { MIN_20, API_ROOT } from '../../constants';
+import { MIN_20, API_URL } from '../../constants';
 
 const EventSource = NativeEventSource || EventSourcePolyfill;
 const jsonBigString = jsonBig({ storeAsString: true });
@@ -33,7 +33,7 @@ class LiveStatsStore extends StatsStore {
 
   @action.bound
   async initLiveUpdates() {
-    this.eventSource = new EventSource(`${API_ROOT}/stats/live`);
+    this.eventSource = new EventSource(`${API_URL}/stats/live`);
     this.eventSource.addEventListener('net_stats_upd', e => {
       this.updateNetworkData(jsonBigString.parse(e.data));
     });
