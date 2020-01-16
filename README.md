@@ -43,13 +43,9 @@ Web UI which displays the current network status of XDAG. Built by using React, 
 
 ## Misc
 
-### Translations
-
-https://github.com/i18next/react-i18next is used for internationalization. Translations are loaded from the online translation service Locize.
-
 ### Change address for API requests
 
-Open `src/constants/constants.js` and change `API_ROOT` into your desired HTTP(S) address which is serving https://github.com/timlah/xdag-network-api.
+Open `src/constants/constants.js` and change production or development `API_URL` into your desired HTTP(S) address which is serving https://github.com/timlah/xdag-network-api.
 
 ### Styling
 
