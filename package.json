@@ -21,7 +21,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bignumber.js": "^8.1.1",
     "classnames": "^2.2.6",
     "d3-format-mod": "github:timlah/d3-format",
